@@ -1,0 +1,77 @@
+{
+  "info": {
+    "name": "AI Women Safety Assistant Backend",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": "Postman collection for the AI Women Safety Assistant Flask backend."
+  },
+  "item": [
+    {
+      "name": "Register",
+      "request": {
+        "method": "POST",
+        "header": [
+          {"key": "Content-Type", "value": "application/json"}
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"username\": \"satya\",\n  \"email\": \"satya@gmail.com\",\n  \"password\": \"123456\"\n}"
+        },
+        "url": {"raw": "http://localhost:5000/api/auth/register", "protocol": "http", "host": ["localhost"], "port": "5000", "path": ["api", "auth", "register"]}
+      }
+    },
+    {
+      "name": "Login",
+      "request": {
+        "method": "POST",
+        "header": [
+          {"key": "Content-Type", "value": "application/json"}
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"username\": \"satya\",\n  \"password\": \"123456\"\n}"
+        },
+        "url": {"raw": "http://localhost:5000/api/auth/login", "protocol": "http", "host": ["localhost"], "port": "5000", "path": ["api", "auth", "login"]}
+      }
+    },
+    {
+      "name": "Get Profile",
+      "request": {
+        "method": "GET",
+        "header": [
+          {"key": "Authorization", "value": "Bearer {{access_token}}"}
+        ],
+        "url": {"raw": "http://localhost:5000/api/user/profile", "protocol": "http", "host": ["localhost"], "port": "5000", "path": ["api", "user", "profile"]}
+      }
+    },
+    {
+      "name": "Create Contact",
+      "request": {
+        "method": "POST",
+        "header": [
+          {"key": "Content-Type", "value": "application/json"},
+          {"key": "Authorization", "value": "Bearer {{access_token}}"}
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"name\": \"Emergency Contact\",\n  \"phone\": \"+911234567890\"\n}"
+        },
+        "url": {"raw": "http://localhost:5000/api/contacts", "protocol": "http", "host": ["localhost"], "port": "5000", "path": ["api", "contacts"]}
+      }
+    },
+    {
+      "name": "SOS Send",
+      "request": {
+        "method": "POST",
+        "header": [
+          {"key": "Content-Type", "value": "application/json"},
+          {"key": "Authorization", "value": "Bearer {{access_token}}"}
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"latitude\": 17.385,\n  \"longitude\": 78.486,\n  \"message\": \"Emergency Help Needed\"\n}"
+        },
+        "url": {"raw": "http://localhost:5000/api/sos/send", "protocol": "http", "host": ["localhost"], "port": "5000", "path": ["api", "sos", "send"]}
+      }
+    }
+  ]
+}
