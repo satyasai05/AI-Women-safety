@@ -1,0 +1,17 @@
+services:
+  - type: web
+    name: ai-women-safety-backend
+    env: python
+    region: oregon
+    plan: free
+    buildCommand: "cd backend && pip install -r requirements.txt"
+    startCommand: "cd backend && gunicorn app:app"
+    envVars:
+      - key: SECRET_KEY
+        value: change-me
+      - key: JWT_SECRET_KEY
+        value: change-me
+      - key: DATABASE_URL
+        value: sqlite:///database/women_safety.db
+      - key: FLASK_DEBUG
+        value: "0"
